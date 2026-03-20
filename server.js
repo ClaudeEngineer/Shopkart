@@ -8,10 +8,15 @@ const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 // Load env vars
 dotenv.config();
 
+const app = express();
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
 // Connect to MongoDB
 connectDB();
 
-const app = express();
+
 
 // ── Middleware ───────────────────────────────────────────
 app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:3000", credentials: true }));
