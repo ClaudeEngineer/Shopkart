@@ -19,7 +19,7 @@ connectDB();
 
 
 // ── Middleware ───────────────────────────────────────────
-app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:3000", credentials: true }));
+// app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:3000", credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
@@ -33,8 +33,12 @@ app.use("/api/orders",   require("./routes/orderRoutes"));
 app.use("/api/users",    require("./routes/userRoutes"));
 
 // ── Health check ─────────────────────────────────────────
-app.get("/api/health", (req, res) => res.json({ status: "OK", message: "ShopKart API running 🚀" }));
+// app.get("/api/health", (req, res) => res.json({ status: "OK", message: "ShopKart API running 🚀" }));
 
+// Root route (for Render check)
+app.get("/", (req, res) => {
+  res.send("ShopKart API is running 🚀");
+});
 // ── Error Handling ───────────────────────────────────────
 app.use(notFound);
 app.use(errorHandler);
