@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 const allowedOrigins = [
-  "http://localhost:5000",
+  "http://localhost:3000",
   "https://shopkart2026.netlify.app"
 ];
 
