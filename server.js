@@ -9,10 +9,14 @@ const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 dotenv.config();
 
 const app = express();
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true
-}));
+const allowedOrigins = [
+  "http://localhost:5000",
+  "https://shopkart2026.netlify.app"
+];
+
+app.use(cors());
+app.options("*", cors());
+
 // Connect to MongoDB
 connectDB();
 
@@ -33,7 +37,7 @@ app.use("/api/orders",   require("./routes/orderRoutes"));
 app.use("/api/users",    require("./routes/userRoutes"));
 
 // ── Health check ─────────────────────────────────────────
-// app.get("/api/health", (req, res) => res.json({ status: "OK", message: "ShopKart API running 🚀" }));
+app.get("/api/health", (req, res) => res.json({ status: "OK", message: "ShopKart API running 🚀" }));
 
 // Root route (for Render check)
 app.get("/", (req, res) => {
