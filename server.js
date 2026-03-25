@@ -14,7 +14,9 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:3000",
   "http://127.0.0.1:3000",
-  "https://shopcartshopp.netlify.app"
+  "https://shopcartshopp.netlify.app",
+  "https://punedeveloper.in",          // ✅ ADD THIS
+  "https://www.punedeveloper.in"       // ✅ ALSO THIS (important)
 ];
 
 app.use(cors({
