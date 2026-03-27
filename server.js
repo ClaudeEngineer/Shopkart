@@ -16,7 +16,9 @@ const allowedOrigins = [
   "http://127.0.0.1:3000",
   "https://shopcartshopp.netlify.app",
   "https://punedeveloper.in",          // ✅ ADD THIS
-  "https://www.punedeveloper.in"       // ✅ ALSO THIS (important)
+  "https://www.punedeveloper.in",
+  "https://punedeveloper.in/admin/login",          // ✅ ADD THIS
+  "https://www.punedeveloper.in/admin/login"       // ✅ ALSO THIS (important)
 ];
 
 app.use(cors({
